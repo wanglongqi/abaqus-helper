@@ -1,0 +1,12 @@
+from txtgen import txtgen,outputtoconsole,outputtoclip,outputtofile
+nodes=['dskxf3.csv','dskxf5.csv','lmq622.csv','lmq624.csv','sjzxf3.csv','sjzxf5.csv','xtc624.csv','xtc626.csv']
+template=u'''$fname$=csvread('$fname$.csv');
+$fname$=mean($fname$(1:27,3:3:end)');
+'''
+content='''
+'''
+for fname in nodes:
+    words={'fname':fname.split('.')[0]}
+    content=content+txtgen(template,words)
+
+outputtoclip(content)
